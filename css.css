@@ -1,0 +1,101 @@
+/*img {
+	max-width: 100%;
+}*/
+
+
+header {
+		margin-left : 0px; 			/*marge gauche 20pixels*/
+		width: auto; 				/* largeur du bloc 29% de la page */
+		height : 50px; 				/*hauteur du bloc (automatique ici) */
+		background-color : #c2a452; 		/*couleur de fond arbitraire afin de voir le bloc */
+		text-align:center;
+		font-family: system-ui;
+		font-size: x-large;
+		}
+		
+.carte {
+		/*positionner à gauche */
+		margin-top: 10px;
+		float:left;		/*marge gauche 310px*/
+		padding : 15px 10px 15px 25px; 	/*marges intérieures :haut, droite, bas puis gauche*/
+		width: 1005px; 				/* largeur du bloc 29% de la page */
+		height : 505px; 				/*hauteur du bloc (automatique ici) */
+		background : whitesmoke; 		/*couleur de fond arbitraire afin de voir le bloc */
+		}
+
+.morceaux {	
+		 /*positionner à gauche */
+		margin-top: 10px;
+		margin-left : 1250px; 			/*marge gauche 20pixels*/
+		padding : 15px 10px 15px 10px; 	/*marges intérieures :haut, droite, bas puis gauche*/
+		width: 505px; 				/* largeur du bloc 29% de la page */
+		height : auto; 		/*hauteur du bloc (automatique ici) */
+		background-color : #2f5ec4; 		/*couleur de fond arbitraire afin de voir le bloc */
+		font-size: x-large;
+		}
+
+body {
+	background: #38b7ce ;
+	}  
+
+main {
+	background-color: #c2a452 ;
+	text-align:center;
+	margin-left: auto;
+    margin-right: auto;
+	width: 20%;
+	margin-top: 5%;
+	padding : 5% 5% 5% 5%;
+	} 
+
+
+/* Menu principal */
+.menu {
+    background-color: wheat;
+}
+
+.menu-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.menu-item {
+    position: relative;
+}
+
+.menu-item > a {
+    display: block;
+    padding: 15px 20px;
+    color: black;
+    text-decoration: none;
+}
+
+.menu-item > a:hover {
+    background-color: #555;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    background-color: #444;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.submenu li a {
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+.submenu li a:hover {
+    background-color: #666;
+}
+
+.menu-item:hover .submenu {
+    display: block;
+}

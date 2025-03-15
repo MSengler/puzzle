@@ -1,0 +1,64 @@
+.paragraphe{
+text-align:center; /*le texte sera aligné au centre*/
+color: #000099;
+}
+
+.surligner {
+color : #990000; 	/*le texte est en rouge */
+font-weight: bold; 	/*la police est en gras */
+}
+
+h1 {
+		padding : 15px 10px 15px 10px; 	/*marges intérieures :haut, droite, bas puis gauche*/
+		font-size : 20px ; /* taille des caractères */
+		height : auto; 				/*hauteur du bloc (automatique ici) */
+		background-color : gray; 		/*couleur de fond arbitraire afin de voir le bloc */
+		font-family: Cursive ;		/* Police générique ressemblant à Times New Roman*/
+		color : #000099 ;		/* Couleur des caractères */
+		text-align : center ;		/* Alignement */
+	}
+	  
+h2{
+	font-family: Cursive ;		/* Police générique ressemblant à Times New Roman*/
+	color : #000099 ;		/* Couleur des caractères */
+	font-size : 15px ;		/* Taille en pixel */
+	text-align : center ;		/* Alignement */
+	font-weight : 800 ;	
+/*«Graisse» des caractères : donne des caractères gras doit être un multiple de 100*/
+	font-style : italic ;		/* Style */
+	text-decoration :underline ;	/* Souligné overline, underline,line-through*/
+	background-color : gray; 
+}
+
+
+
+
+.entete {
+background-color: wheat;
+text-align:center;
+}
+		  
+.liens {
+		float:left; /*positionner à gauche */
+		margin-left : 0px; 			/*marge gauche 20pixels*/
+		padding : 15px 10px 15px 10px; 	/*marges intérieures :haut, droite, bas puis gauche*/
+		width: 28%; 				/* largeur du bloc 29% de la page */
+		height : auto; 				/*hauteur du bloc (automatique ici) */
+		background-color : lightgrey; 		/*couleur de fond arbitraire afin de voir le bloc */
+		}
+		
+.poeme {
+		
+		margin-left : 30%; 			/*marge gauche 310px*/
+		padding : 15px 10px 15px 25px; 	/*marges intérieures :haut, droite, bas puis gauche*/
+		width: 68%; 				/* largeur du bloc 70% de la page */
+		height : auto; 				/*hauteur du bloc (automatique ici) */
+		background-color : #3366FF; 		/*couleur de fond arbitraire afin de voir le bloc */
+		}
+		
+		
+body
+{
+	background:url(fond2.jpg) /*no-repeat*/;
+	background-position : right	
+}
