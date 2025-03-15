@@ -1,5 +1,7 @@
 from PIL import Image
 import os
+import sys
+
 
 def divide_image(image_path, output_folder, rows, cols):
     """
@@ -44,5 +46,8 @@ def divide_image(image_path, output_folder, rows, cols):
     except Exception as e:
         print(f"Erreur : {e}")
 
-# Exemple d'utilisation
-divide_image("fond.png", "output_pieces", 2, 4)
+
+"""
+if __name__ == '__main__':
+    divide_image(image_path, "static/images", 2, 4)
+"""
