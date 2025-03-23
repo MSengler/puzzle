@@ -18,8 +18,8 @@ header {
 		margin-top: 10px;
 		float:left;		/*marge gauche 310px*/
 		padding : 15px 10px 15px 25px; 	/*marges intérieures :haut, droite, bas puis gauche*/
-		width: 1005px; 				/* largeur du bloc 29% de la page */
-		height : 505px; 				/*hauteur du bloc (automatique ici) */
+		width: 1030px; 				/* largeur du bloc 29% de la page */
+		height : 518px; 				/*hauteur du bloc (automatique ici) */
 		background : whitesmoke; 		/*couleur de fond arbitraire afin de voir le bloc */
 		}
 
