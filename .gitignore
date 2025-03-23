@@ -1,1 +1,2 @@
-*.png
+piece*
+__pycache__/write_html.cpython-312.pyc
