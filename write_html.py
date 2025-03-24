@@ -54,36 +54,35 @@ def generate(nb_row = 2, nb_col = 4):
 	<body>
 		<header>Puzzle du monde </header>
 
-		<nav class="menu">
-			<ul class="menu-list">
-				<li class="menu-item">
-					<a href="/">Accueil</a>
-				</li>
-				<li class="menu-item">
-					<a href="#">Choix Puzzle</a>
-					<ul class="submenu">
-						<li><a href="/run-monde">Monde</a></li>
-						<li><a href="#">Etat-Unis</a></li>
-						<li><a href="#">Europe</a></li>
-						<li><a href="/run-asie">Asie</a></li>
-						<li><a href="#">Importer</a></li>
-					</ul>
-				</li>
-				<li class="menu-item">
-					<a href="#">Difficultés</a>
-					<ul class="submenu">
-						<li><a href="#">Très facile</a></li>
-						<li><a href="#">Facile</a></li>
-						<li><a href="#">Moyen</a></li>
-						<li><a href="#">Difficile</a></li>
-						<li><a href="#">Très difficile</a></li>
-					</ul>
-				</li>
-				<li class="menu-item">
-					<a href="#">À propos</a>
-				</li>
-			</ul>
-		</nav>
+		    <nav class="menu">
+        <ul class="menu-list">
+            <li class="menu-item">
+                <a href="/">Accueil</a>
+            </li>
+            <li class="menu-item">
+                <a href="#">Monde</a>
+                <ul class="submenu">
+                    <li><a href="/run-monde_f">Facile</a></li>
+                    <li><a href="/run-monde_m">Moyen</a></li>
+                    <li><a href="/run-monde_d">Difficile</a></li>
+                </ul>
+            </li>
+			<li class="menu-item">
+                <a href="#">Asie</a>
+                <ul class="submenu">
+                    <li><a href="/run-asie_f">Facile</a></li>
+                    <li><a href="/run-asie_m">Moyen</a></li>
+                    <li><a href="/run-asie_d">Difficile</a></li>
+                </ul>
+            </li>
+            <li class="menu-item">
+                <a href="#">Importer</a>
+            </li>
+            <li class="menu-item">
+                <a href="#">À propos</a>
+            </li>
+        </ul>
+    </nav>
 	"""
 
 	map_cell = """

@@ -52,6 +52,8 @@ main {
 /* Menu principal */
 .menu {
     background-color: wheat;
+	position: relative; 
+    z-index: 1;
 }
 
 .menu-list {
@@ -83,6 +85,7 @@ main {
     list-style-type: none;
     padding: 0;
     margin: 0;
+	z-index: 1000;
 }
 
 .submenu li a {
