@@ -11,9 +11,10 @@ python app.py
 
 
 A faire:
-- Correction bar nav
-- Améliorer la barre verticale, surtout dans les cas moyen et difficile, en ajoutant des colonnes variables
+- Correction bar nav : Fait
+- Améliorer la barre verticale, surtout dans les cas moyen et difficile, en ajoutant des colonnes variables : Fait
 - Ajouter des nouvelles images de cartes 
 - Modifier la carte Asie : enlever les contours inutiles
+- Adaptation à différentes forme/taille d'écran
 - Possibilité d'importer ses propres images
 - Possibilité de choisir sa propre difficulté: nombre de lignes et de colonnes (faire attention à la divisibilité) 

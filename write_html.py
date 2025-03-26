@@ -3,7 +3,11 @@ import numpy as np
 
 
 
-def generate(nb_row = 2, nb_col = 4):
+def generate(nb_row = 2, nb_col = 4, width=1024, height=512):
+
+	k = min(1024/width, 1024/height)
+	width *= k
+	height *= k 
 
 	begin = """
 	<!DOCTYPE HTML>
@@ -19,10 +23,29 @@ def generate(nb_row = 2, nb_col = 4):
 	style = f"""
 	<style>
 		.grid-cell {{
-		width: {int(1024/nb_col)}px;
-		height: {int(512/nb_row)}px;
-		border: 1px solid #aaaaaa;
-		position: relative;
+			width: {int(width/nb_col)}px;
+			height: {int(height/nb_row)}px;
+			border: 1px solid #aaaaaa;
+			position: relative;
+		}}
+
+		.carte {{
+			margin-top: 10px;
+			float:left;	
+			padding : 15px 10px 15px 25px; 
+			width: {width+10}px; 	
+			height : {height+10}px; 
+			background : whitesmoke; 
+		}}
+
+		.morceaux {{	
+			margin-top: 10px;
+			margin-left : {width+50}px; 		
+			padding : 15px 10px 15px 10px; 	
+			width: {min(width,height) + 10}px; 	
+			height : auto; 
+			background-color : #2f5ec4; 
+			font-size: x-large;
 		}}
 
 	</style>
@@ -111,14 +134,14 @@ def generate(nb_row = 2, nb_col = 4):
 	index = np.random.permutation(index)
 
 	idx = 0
-	for i in range(nb_row*nb_col//2):
+	max_cr = max(nb_col,nb_row)
+	min_cr = min(nb_col,nb_row)
+	for i in range(max_cr):
 		morceaux = morceaux + "        <tr>\n"
-		morceaux = morceaux + f"""            <td colspan="3"><img id="drag{idx}" src="{{{{ url_for('static', filename='images/piece_{index[idx,0]}_{index[idx,1]}.png') }}}}" draggable="true" ondragstart="drag(event)" width="{int(1024/nb_col)}" height="{int(512/nb_row)}"></td>\n"""
-		morceaux = morceaux + f"""            <td colspan="3"><img id="drag{idx+1}" src="{{{{ url_for('static', filename='images/piece_{index[idx+1,0]}_{index[idx+1,1]}.png') }}}}" draggable="true" ondragstart="drag(event)" width="{int(1024/nb_col)}" height="{int(512/nb_row)}"></td>\n"""
-		
+		for j in range(min_cr):
+			morceaux = morceaux + f"""            <td colspan="3"><img id="drag{idx}" src="{{{{ url_for('static', filename='images/piece_{index[idx,0]}_{index[idx,1]}.png') }}}}" draggable="true" ondragstart="drag(event)" width="{int(width/nb_col)}" height="{int(height/nb_row)}"></td>\n"""
+			idx += 1
 		morceaux = morceaux + "        </tr>\n"
-		idx += 2
-
 
 	morceaux = morceaux + """
 			</table>
@@ -128,7 +151,7 @@ def generate(nb_row = 2, nb_col = 4):
 	</html>
 	"""
 
-	with open(f"templates/puzzles_{nb_row}_{nb_col}.html", 'w') as f:
+	with open(f"templates/puzzles.html", 'w') as f:
 		f.write(begin)
 		f.write(style)
 		f.write(script)

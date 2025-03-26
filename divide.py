@@ -3,7 +3,7 @@ import os
 import sys
 
 
-def divide_image(image_path, output_folder, rows, cols):
+def divide_image(image_path, output_folder, difficulty):
     """
     Divise une image en plusieurs parties égales.
     
@@ -16,6 +16,29 @@ def divide_image(image_path, output_folder, rows, cols):
         # Charger l'image
         img = Image.open(image_path)
         img_width, img_height = img.size
+
+        if img_width/img_height>1.2:
+            if difficulty=="Facile":
+                rows,cols = 2,4
+            elif difficulty=="Moyen":
+                rows,cols = 3,6
+            elif difficulty=="Difficile":
+                rows,cols = 4,8
+        elif img_width/img_height<0.8:
+            if difficulty=="Facile":
+                rows,cols = 4,2
+            elif difficulty=="Moyen":
+                rows,cols = 6,3
+            elif difficulty=="Difficile":
+                rows,cols = 8,4
+        else:
+            if difficulty=="Facile":
+                rows,cols = 3,3
+            elif difficulty=="Moyen":
+                rows,cols = 4,4
+            elif difficulty=="Difficile":
+                rows,cols = 6,6
+
         
         # Calculer la taille de chaque morceau
         piece_width = img_width // cols
@@ -45,6 +68,8 @@ def divide_image(image_path, output_folder, rows, cols):
     
     except Exception as e:
         print(f"Erreur : {e}")
+
+    return img_width, img_height, rows, cols
 
 
 """

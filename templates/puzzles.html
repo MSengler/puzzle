@@ -1,0 +1,167 @@
+
+	<!DOCTYPE HTML>
+	<html>
+	<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css">
+	<title>puzzle</title>
+	
+	<style>
+		.grid-cell {
+			width: 229px;
+			height: 170px;
+			border: 1px solid #aaaaaa;
+			position: relative;
+		}
+
+		.carte {
+			margin-top: 10px;
+			float:left;	
+			padding : 15px 10px 15px 25px; 
+			width: 697.4239256678281px; 	
+			height : 1034.0px; 
+			background : whitesmoke; 
+		}
+
+		.morceaux {	
+			margin-top: 10px;
+			margin-left : 737.4239256678281px; 		
+			padding : 15px 10px 15px 10px; 	
+			width: 697.4239256678281px; 	
+			height : auto; 
+			background-color : #2f5ec4; 
+			font-size: x-large;
+		}
+
+	</style>
+	
+	<script>
+		function allowDrop(ev) {
+		ev.preventDefault();
+		}
+
+		function drag(ev) {
+		ev.dataTransfer.setData("text", ev.target.id);
+		}
+
+		function drop(ev) {
+		ev.preventDefault();
+		var data = ev.dataTransfer.getData("text");
+
+		if (ev.target.classList.contains('grid-cell') && ev.target.children.length === 0) {
+			ev.target.appendChild(document.getElementById(data));
+		} 
+		}
+	</script>
+	</head>
+	
+	<body>
+		<header>Puzzle du monde </header>
+
+		    <nav class="menu">
+        <ul class="menu-list">
+            <li class="menu-item">
+                <a href="/">Accueil</a>
+            </li>
+            <li class="menu-item">
+                <a href="#">Monde</a>
+                <ul class="submenu">
+                    <li><a href="/run-monde_f">Facile</a></li>
+                    <li><a href="/run-monde_m">Moyen</a></li>
+                    <li><a href="/run-monde_d">Difficile</a></li>
+                </ul>
+            </li>
+			<li class="menu-item">
+                <a href="#">Asie</a>
+                <ul class="submenu">
+                    <li><a href="/run-asie_f">Facile</a></li>
+                    <li><a href="/run-asie_m">Moyen</a></li>
+                    <li><a href="/run-asie_d">Difficile</a></li>
+                </ul>
+            </li>
+            <li class="menu-item">
+                <a href="#">Importer</a>
+            </li>
+            <li class="menu-item">
+                <a href="#">À propos</a>
+            </li>
+        </ul>
+    </nav>
+	
+		<div class="carte">
+			<table border="0" cellspacing="0" cellpadding="0">
+	        <tr>
+            <td><div id="cell0" class="grid-cell" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
+            <td><div id="cell1" class="grid-cell" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
+            <td><div id="cell2" class="grid-cell" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
+        </tr>
+        <tr>
+            <td><div id="cell3" class="grid-cell" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
+            <td><div id="cell4" class="grid-cell" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
+            <td><div id="cell5" class="grid-cell" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
+        </tr>
+        <tr>
+            <td><div id="cell6" class="grid-cell" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
+            <td><div id="cell7" class="grid-cell" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
+            <td><div id="cell8" class="grid-cell" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
+        </tr>
+        <tr>
+            <td><div id="cell9" class="grid-cell" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
+            <td><div id="cell10" class="grid-cell" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
+            <td><div id="cell11" class="grid-cell" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
+        </tr>
+        <tr>
+            <td><div id="cell12" class="grid-cell" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
+            <td><div id="cell13" class="grid-cell" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
+            <td><div id="cell14" class="grid-cell" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
+        </tr>
+        <tr>
+            <td><div id="cell15" class="grid-cell" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
+            <td><div id="cell16" class="grid-cell" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
+            <td><div id="cell17" class="grid-cell" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
+        </tr>
+        </table>
+    </div>
+
+		<div class="morceaux">
+			Placer les morceaux sur la carte:
+			<table border="0" cellspacing="0" cellpadding="0">
+	        <tr>
+            <td colspan="3"><img id="drag0" src="{{ url_for('static', filename='images/piece_5_2.png') }}" draggable="true" ondragstart="drag(event)" width="229" height="170"></td>
+            <td colspan="3"><img id="drag1" src="{{ url_for('static', filename='images/piece_0_2.png') }}" draggable="true" ondragstart="drag(event)" width="229" height="170"></td>
+            <td colspan="3"><img id="drag2" src="{{ url_for('static', filename='images/piece_0_1.png') }}" draggable="true" ondragstart="drag(event)" width="229" height="170"></td>
+        </tr>
+        <tr>
+            <td colspan="3"><img id="drag3" src="{{ url_for('static', filename='images/piece_2_0.png') }}" draggable="true" ondragstart="drag(event)" width="229" height="170"></td>
+            <td colspan="3"><img id="drag4" src="{{ url_for('static', filename='images/piece_4_0.png') }}" draggable="true" ondragstart="drag(event)" width="229" height="170"></td>
+            <td colspan="3"><img id="drag5" src="{{ url_for('static', filename='images/piece_5_1.png') }}" draggable="true" ondragstart="drag(event)" width="229" height="170"></td>
+        </tr>
+        <tr>
+            <td colspan="3"><img id="drag6" src="{{ url_for('static', filename='images/piece_1_1.png') }}" draggable="true" ondragstart="drag(event)" width="229" height="170"></td>
+            <td colspan="3"><img id="drag7" src="{{ url_for('static', filename='images/piece_4_1.png') }}" draggable="true" ondragstart="drag(event)" width="229" height="170"></td>
+            <td colspan="3"><img id="drag8" src="{{ url_for('static', filename='images/piece_3_1.png') }}" draggable="true" ondragstart="drag(event)" width="229" height="170"></td>
+        </tr>
+        <tr>
+            <td colspan="3"><img id="drag9" src="{{ url_for('static', filename='images/piece_2_1.png') }}" draggable="true" ondragstart="drag(event)" width="229" height="170"></td>
+            <td colspan="3"><img id="drag10" src="{{ url_for('static', filename='images/piece_1_2.png') }}" draggable="true" ondragstart="drag(event)" width="229" height="170"></td>
+            <td colspan="3"><img id="drag11" src="{{ url_for('static', filename='images/piece_4_2.png') }}" draggable="true" ondragstart="drag(event)" width="229" height="170"></td>
+        </tr>
+        <tr>
+            <td colspan="3"><img id="drag12" src="{{ url_for('static', filename='images/piece_3_2.png') }}" draggable="true" ondragstart="drag(event)" width="229" height="170"></td>
+            <td colspan="3"><img id="drag13" src="{{ url_for('static', filename='images/piece_5_0.png') }}" draggable="true" ondragstart="drag(event)" width="229" height="170"></td>
+            <td colspan="3"><img id="drag14" src="{{ url_for('static', filename='images/piece_2_2.png') }}" draggable="true" ondragstart="drag(event)" width="229" height="170"></td>
+        </tr>
+        <tr>
+            <td colspan="3"><img id="drag15" src="{{ url_for('static', filename='images/piece_3_0.png') }}" draggable="true" ondragstart="drag(event)" width="229" height="170"></td>
+            <td colspan="3"><img id="drag16" src="{{ url_for('static', filename='images/piece_0_0.png') }}" draggable="true" ondragstart="drag(event)" width="229" height="170"></td>
+            <td colspan="3"><img id="drag17" src="{{ url_for('static', filename='images/piece_1_0.png') }}" draggable="true" ondragstart="drag(event)" width="229" height="170"></td>
+        </tr>
+
+			</table>
+		</div>	
+
+	</body>
+	</html>
+	

@@ -13,26 +13,17 @@ header {
 		font-size: x-large;
 		}
 		
-.carte {
-		/*positionner à gauche */
-		margin-top: 10px;
-		float:left;		/*marge gauche 310px*/
-		padding : 15px 10px 15px 25px; 	/*marges intérieures :haut, droite, bas puis gauche*/
-		width: 1030px; 				/* largeur du bloc 29% de la page */
-		height : 518px; 				/*hauteur du bloc (automatique ici) */
-		background : whitesmoke; 		/*couleur de fond arbitraire afin de voir le bloc */
-		}
-
+/*
 .morceaux {	
-		 /*positionner à gauche */
 		margin-top: 10px;
-		margin-left : 1250px; 			/*marge gauche 20pixels*/
-		padding : 15px 10px 15px 10px; 	/*marges intérieures :haut, droite, bas puis gauche*/
-		width: 505px; 				/* largeur du bloc 29% de la page */
-		height : auto; 		/*hauteur du bloc (automatique ici) */
-		background-color : #2f5ec4; 		/*couleur de fond arbitraire afin de voir le bloc */
+		margin-left : 1250px; 			
+		padding : 15px 10px 15px 10px;
+		width: 505px;
+		height : auto; 
+		background-color : #2f5ec4;
 		font-size: x-large;
 		}
+*/
 
 body {
 	background: #38b7ce ;
