@@ -69,6 +69,8 @@ def generate(nb_row = 2, nb_col = 4, width=1024, height=512):
 			ev.target.appendChild(document.getElementById(data));
 		} 
 		}
+
+
 	</script>
 	</head>
 	"""
@@ -99,7 +101,10 @@ def generate(nb_row = 2, nb_col = 4, width=1024, height=512):
                 </ul>
             </li>
             <li class="menu-item">
-                <a href="#">Importer</a>
+                <button id="uploadBtn">Importer</button>
+                <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data" style="display: none;">
+                    <input type="file" name="file" id="fileInput" accept="image/*">
+                </form>
             </li>
             <li class="menu-item">
                 <a href="#">À propos</a>
@@ -146,7 +151,18 @@ def generate(nb_row = 2, nb_col = 4, width=1024, height=512):
 	morceaux = morceaux + """
 			</table>
 		</div>	
+	"""
 
+	script2="""
+	<script>
+		document.getElementById("uploadBtn").addEventListener("click", function() {
+        	document.getElementById("fileInput").click(); // Simule le clic sur l'input
+        });
+        
+        document.getElementById("fileInput").addEventListener("change", function() {
+        	document.getElementById("uploadForm").submit(); // Soumet le formulaire dès qu'un fichier est sélectionné
+        });
+	</script>
 	</body>
 	</html>
 	"""
@@ -158,3 +174,4 @@ def generate(nb_row = 2, nb_col = 4, width=1024, height=512):
 		f.write(nav)
 		f.write(map_cell)
 		f.write(morceaux)
+		f.write(script2)

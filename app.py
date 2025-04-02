@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for
 import os
 import divide
 import write_html as wh
@@ -11,7 +11,7 @@ col_d, row_d = 8, 4
 """
 
 app = Flask(__name__)
-
+app.config['UPLOAD_FOLDER'] = 'static/images/'
 print(os.getcwd())
 
 @app.route('/')
@@ -43,7 +43,7 @@ def run_asie_f():
     return redirect(url_for('puzzle'))
 
 
-#Niveau moyen
+# Niveau moyen
 @app.route('/run-monde_m')
 def run_monde_m():
     image_path = "static/images/Monde.png"
@@ -58,7 +58,7 @@ def run_asie_m():
     wh.generate(rows, cols, img_width, img_height)
     return redirect(url_for('puzzle'))
 
-#Niveau difficile
+# Niveau difficile
 @app.route('/run-monde_d')
 def run_monde_d():
     image_path = "static/images/Monde.png"
@@ -72,6 +72,26 @@ def run_asie_d():
     img_width, img_height, rows, cols = divide.divide_image(image_path, "static/images", "Difficile")
     wh.generate(rows, cols, img_width, img_height)
     return redirect(url_for('puzzle'))
+
+
+# Import d'images
+@app.route("/upload", methods=["POST"])
+def upload_file():
+    if "file" not in request.files:
+        return redirect(url_for("index"))
+
+    file = request.files["file"]
+    if file.filename == "":
+        return redirect(url_for("index"))
+
+    if file:
+        print(file.filename)
+        image_path = os.path.join(app.config["UPLOAD_FOLDER"], "Import" )#file.filename
+        file.save(image_path)
+        img_width, img_height, rows, cols = divide.divide_image(image_path, "static/images", "Moyen")
+        wh.generate(rows, cols, img_width, img_height)
+        return redirect(url_for("puzzle"))  # Redirige vers la page d'accueil
+
 
 
 if __name__ == '__main__':

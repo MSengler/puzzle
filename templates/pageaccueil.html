@@ -33,12 +33,26 @@
                 </ul>
             </li>
             <li class="menu-item">
-                <a href="#">Importer</a>
+                <!-- Bouton stylisé -->
+                <button id="uploadBtn">Importer</button>
+                <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data" style="display: none;">
+                    <input type="file" name="file" id="fileInput" accept="image/*">
+                </form>
             </li>
             <li class="menu-item">
                 <a href="#">À propos</a>
             </li>
         </ul>
     </nav>
+
+    <script>
+        document.getElementById("uploadBtn").addEventListener("click", function() {
+            document.getElementById("fileInput").click(); // Simule le clic sur l'input
+        });
+        
+        document.getElementById("fileInput").addEventListener("change", function() {
+            document.getElementById("uploadForm").submit(); // Soumet le formulaire dès qu'un fichier est sélectionné
+        });
+    </script>
 </body>
 </html>

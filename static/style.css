@@ -58,6 +58,7 @@ main {
     position: relative;
 }
 
+
 .menu-item > a {
     display: block;
     padding: 15px 20px;
@@ -92,4 +93,20 @@ main {
 
 .menu-item:hover .submenu {
     display: block;
+}
+
+
+#uploadBtn {
+    background-color: wheat;
+    color: black;
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+    /*border-radius: 5px;*/
+   font-size: 16px;
+   font-family:serif
+}
+
+#uploadBtn:hover {
+    background-color: wheat;
 }
