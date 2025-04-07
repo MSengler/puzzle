@@ -16,5 +16,7 @@ python app.py
 
 A faire:
 - Ajouter des nouvelles images 
-- Adaptation à différentes forme/taille d'écran
+- Adaptation à différentes formes/tailles d'écran : Fait
+- Taille des écritures selon la taille de l'écran
 - Design
+- Animation de victoire quand puzzle complété

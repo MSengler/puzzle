@@ -5,7 +5,8 @@ import numpy as np
 
 def generate(nb_row = 2, nb_col = 4, width=1024, height=512):
 
-	k = min(1024/width, 1024/height)
+	#k = min(1024/width, 1024/height)
+	k = min(45/width, 45/height)
 	width *= k
 	height *= k 
 
@@ -23,8 +24,8 @@ def generate(nb_row = 2, nb_col = 4, width=1024, height=512):
 	style = f"""
 	<style>
 		.grid-cell {{
-			width: {int(width/nb_col)}px;
-			height: {int(height/nb_row)}px;
+			width: {int(width/nb_col)}vw;
+			height: {int(height/nb_row)}vw;
 			border: 1px solid #aaaaaa;
 			position: relative;
 		}}
@@ -33,16 +34,16 @@ def generate(nb_row = 2, nb_col = 4, width=1024, height=512):
 			margin-top: 10px;
 			float:left;	
 			padding : 15px 10px 15px 25px; 
-			width: {width+10}px; 	
-			height : {height+10}px; 
+			width: {width+1}vw; 	
+			height : {height+1}vw; 
 			background : whitesmoke; 
 		}}
 
 		.morceaux {{	
 			margin-top: 10px;
-			margin-left : {width+50}px; 		
+			margin-left : {width+10}vw; 		
 			padding : 15px 10px 15px 10px; 	
-			width: {min(width,height) + 10}px; 	
+			width: {min(width,height) + 1}vw; 	
 			height : auto; 
 			background-color : #2f5ec4; 
 			font-size: x-large;
@@ -144,7 +145,14 @@ def generate(nb_row = 2, nb_col = 4, width=1024, height=512):
 	for i in range(max_cr):
 		morceaux = morceaux + "        <tr>\n"
 		for j in range(min_cr):
-			morceaux = morceaux + f"""            <td colspan="3"><img id="drag{idx}" src="{{{{ url_for('static', filename='images/piece_{index[idx,0]}_{index[idx,1]}.png') }}}}" draggable="true" ondragstart="drag(event)" width="{int(width/nb_col)}" height="{int(height/nb_row)}"></td>\n"""
+			morceaux += f"""
+			<td colspan="3">
+        		<img id="drag{idx}" 
+             		src="{{{{ url_for('static', filename='images/piece_{index[idx,0]}_{index[idx,1]}.png') }}}}" 
+             		draggable="true" 
+             		ondragstart="drag(event)"
+             		style="width: {int(width / nb_col)}vw; height: {int(height / nb_row)}vw;">
+    		</td>\n"""
 			idx += 1
 		morceaux = morceaux + "        </tr>\n"
 
