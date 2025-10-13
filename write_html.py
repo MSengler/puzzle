@@ -55,26 +55,61 @@ def generate(nb_row = 2, nb_col = 4, width=1024, height=512):
 	script = """
 	<script>
 		function allowDrop(ev) {
-		ev.preventDefault();
+			ev.preventDefault();
 		}
 
 		function drag(ev) {
-		ev.dataTransfer.setData("text", ev.target.id);
+			ev.dataTransfer.setData("text", ev.target.id);
 		}
 
 		function drop(ev) {
-		ev.preventDefault();
-		var data = ev.dataTransfer.getData("text");
+			ev.preventDefault();
+			const pieceId = ev.dataTransfer.getData("text");
+			const caseId = ev.target.id;
+			//console.log(caseId);
 
-		if (ev.target.classList.contains('grid-cell') && ev.target.children.length === 0) {
-			ev.target.appendChild(document.getElementById(data));
-		} 
+			// Vérifier si la case est vide et placer le morceau
+			if (ev.target.classList.contains('grid-cell') && ev.target.children.length === 0) {
+				ev.target.appendChild(document.getElementById(pieceId));
+			} 
+			// Vérifier si le morceau est bien placé
+			if (pieceId.replace("drag", "") === caseId.replace("cell", "")) {
+				console.log("Bien placé :", pieceId, caseId);
+				checkCompletion()
+			} else {
+				console.log("Mauvaise position :", pieceId, caseId);
+			}
+
+			
 		}
+
+		function checkCompletion() {
+			const dropzones = document.querySelectorAll('.grid-cell');
+			let correct = 0;
+			dropzones.forEach(zone => {
+				if (zone.children.length > 0) {
+				const piece = zone.children[0];
+				//console.log(piece.id, zone.id);
+				const pieceCoords = piece.id.replace(/^drag_/, '');
+				const zoneCoords  = zone.id.replace(/^cell_/, '');
+				if (pieceCoords === zoneCoords) {correct++;}
+
+			}
+			});
+
+			if (correct === dropzones.length) {
+				alert('🎉 Puzzle complété !');
+			} else {
+				console.log(`Progression: ${correct} / ${dropzones.length}`);
+			}
+		}
+
 
 
 	</script>
 	</head>
 	"""
+
 
 	nav = """
 	<body>
@@ -119,12 +154,10 @@ def generate(nb_row = 2, nb_col = 4, width=1024, height=512):
 			<table border="0" cellspacing="0" cellpadding="0">
 	"""
 
-	idx_id = 0
 	for i in range(nb_row):
 		map_cell = map_cell + "        <tr>\n"
 		for j in range(nb_col):
-			map_cell = map_cell + f"""            <td><div id="cell{idx_id}" class="grid-cell" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>\n"""
-			idx_id += 1
+			map_cell = map_cell + f"""            <td><div id="cell_{i}_{j}" class="grid-cell" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>\n"""
 		map_cell = map_cell + "        </tr>\n"
 
 	map_cell = map_cell + "        </table>\n    </div>\n"
@@ -139,21 +172,24 @@ def generate(nb_row = 2, nb_col = 4, width=1024, height=512):
 	index = np.stack([np.repeat(range(nb_row),nb_col),np.array(list(range(nb_col))*nb_row) ], axis=1)
 	index = np.random.permutation(index)
 
-	idx = 0
+
 	max_cr = max(nb_col,nb_row)
 	min_cr = min(nb_col,nb_row)
+	idx = 0
 	for i in range(max_cr):
 		morceaux = morceaux + "        <tr>\n"
 		for j in range(min_cr):
 			morceaux += f"""
 			<td colspan="3">
-        		<img id="drag{idx}" 
+        		<img id="drag_{index[idx,0]}_{index[idx,1]}" 
              		src="{{{{ url_for('static', filename='images/piece_{index[idx,0]}_{index[idx,1]}.png') }}}}" 
              		draggable="true" 
              		ondragstart="drag(event)"
              		style="width: {int(width / nb_col)}vw; height: {int(height / nb_row)}vw;">
     		</td>\n"""
 			idx += 1
+			if idx >= nb_col * nb_row:
+				break
 		morceaux = morceaux + "        </tr>\n"
 
 	morceaux = morceaux + """

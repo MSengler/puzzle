@@ -14,4 +14,5 @@ A faire:
 - Ajouter des nouvelles images 
 - Taille des écritures selon la taille de l'écran
 - Design
-- Animation de victoire quand le puzzle est complété
+- Mettre une case de sécurité pour éviter d'être coinsé.
+- Faire autre chose qu'une alerte en cas de victoire ?
