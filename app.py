@@ -86,11 +86,11 @@ def upload_file():
 
     if file:
         print(file.filename)
-        image_path = os.path.join(app.config["UPLOAD_FOLDER"], "Import" )#file.filename
+        image_path = os.path.join(app.config["UPLOAD_FOLDER"], "Import" )
         file.save(image_path)
         img_width, img_height, rows, cols = divide.divide_image(image_path, "static/images", "Moyen")
         wh.generate(rows, cols, img_width, img_height)
-        return redirect(url_for("puzzle"))  # Redirige vers la page d'accueil
+        return redirect(url_for("puzzle"))
 
 
 
