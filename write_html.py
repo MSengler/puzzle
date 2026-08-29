@@ -100,7 +100,7 @@ def generate(nb_row = 2, nb_col = 4, width=1024, height=512):
 			if (correct === dropzones.length-1) {
 				document.getElementById("completion-message").innerHTML = `<h1 style='background-color:whitesmoke;color:green;'>Puzzle complété ! 😃 🎉</h1>`;
 				document.getElementById("bonus_grid").style.borderStyle = "none";
-				document.getElementById("bonus_grid").innerHTML = "<h2>Félicitations ! Vous avez complété le puzzle.</h2>";
+				document.getElementById("bonus_grid").innerHTML = "<h1>Félicitations !</h1>";
 			} else {
 				console.log(`Progression: ${correct} / ${dropzones.length-1}`);
 			}
@@ -115,7 +115,7 @@ def generate(nb_row = 2, nb_col = 4, width=1024, height=512):
 
 	nav = """
 	<body>
-		<header>Puzzle du monde </header>
+		<header>Puzzle</header>
 
 		    <nav class="menu">
         <ul class="menu-list">
@@ -167,7 +167,7 @@ def generate(nb_row = 2, nb_col = 4, width=1024, height=512):
 
 	morceaux = """
 		<div class="morceaux">
-			<h id="completion-message"><br />Placer les morceaux sur la carte:</h>
+			<h2 id="completion-message">Placer les morceaux sur la carte:</h2>
 			
 			<table border="0" cellspacing="0" cellpadding="0">
 	"""

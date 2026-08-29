@@ -10,8 +10,8 @@
 	
 	<style>
 		.grid-cell {
-			width: 11vw;
-			height: 13vw;
+			width: 7vw;
+			height: 9vw;
 			border: 1px solid #aaaaaa;
 			position: relative;
 		}
@@ -84,7 +84,7 @@
 			if (correct === dropzones.length-1) {
 				document.getElementById("completion-message").innerHTML = `<h1 style='background-color:whitesmoke;color:green;'>Puzzle complété ! 😃 🎉</h1>`;
 				document.getElementById("bonus_grid").style.borderStyle = "none";
-				document.getElementById("bonus_grid").innerHTML = "<h2>Félicitations ! Vous avez complété le puzzle.</h2>";
+				document.getElementById("bonus_grid").innerHTML = "<h1>Félicitations !</h1>";
 			} else {
 				console.log(`Progression: ${correct} / ${dropzones.length-1}`);
 			}
@@ -96,7 +96,7 @@
 	</head>
 	
 	<body>
-		<header>Puzzle du monde </header>
+		<header>Puzzle </header>
 
 		    <nav class="menu">
         <ul class="menu-list">
@@ -138,28 +138,118 @@
             <td><div id="cell_0_1" class="grid-cell" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
             <td><div id="cell_0_2" class="grid-cell" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
             <td><div id="cell_0_3" class="grid-cell" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
+            <td><div id="cell_0_4" class="grid-cell" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
+            <td><div id="cell_0_5" class="grid-cell" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
         </tr>
         <tr>
             <td><div id="cell_1_0" class="grid-cell" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
             <td><div id="cell_1_1" class="grid-cell" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
             <td><div id="cell_1_2" class="grid-cell" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
             <td><div id="cell_1_3" class="grid-cell" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
+            <td><div id="cell_1_4" class="grid-cell" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
+            <td><div id="cell_1_5" class="grid-cell" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
+        </tr>
+        <tr>
+            <td><div id="cell_2_0" class="grid-cell" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
+            <td><div id="cell_2_1" class="grid-cell" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
+            <td><div id="cell_2_2" class="grid-cell" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
+            <td><div id="cell_2_3" class="grid-cell" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
+            <td><div id="cell_2_4" class="grid-cell" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
+            <td><div id="cell_2_5" class="grid-cell" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
         </tr>
         </table>
     </div>
 
 		<div class="morceaux">
-			<h id="completion-message"><br />Placer les morceaux sur la carte:</h>
+			<h2 id="completion-message">Placer les morceaux sur la carte:</h2>
 			
 			<table border="0" cellspacing="0" cellpadding="0">
 	        <tr>
 
 			<td colspan="3">
-        		<img id="drag_1_2" 
-             		src="{{ url_for('static', filename='images/piece_1_2.png') }}" 
+        		<img id="drag_0_0" 
+             		src="{{ url_for('static', filename='images/piece_0_0.png') }}" 
              		draggable="true" 
              		ondragstart="drag(event)"
-             		style="width: 11vw; height: 13vw;">
+             		style="width: 7vw; height: 9vw;">
+    		</td>
+
+			<td colspan="3">
+        		<img id="drag_2_4" 
+             		src="{{ url_for('static', filename='images/piece_2_4.png') }}" 
+             		draggable="true" 
+             		ondragstart="drag(event)"
+             		style="width: 7vw; height: 9vw;">
+    		</td>
+
+			<td colspan="3">
+        		<img id="drag_0_1" 
+             		src="{{ url_for('static', filename='images/piece_0_1.png') }}" 
+             		draggable="true" 
+             		ondragstart="drag(event)"
+             		style="width: 7vw; height: 9vw;">
+    		</td>
+        </tr>
+        <tr>
+
+			<td colspan="3">
+        		<img id="drag_2_0" 
+             		src="{{ url_for('static', filename='images/piece_2_0.png') }}" 
+             		draggable="true" 
+             		ondragstart="drag(event)"
+             		style="width: 7vw; height: 9vw;">
+    		</td>
+
+			<td colspan="3">
+        		<img id="drag_0_4" 
+             		src="{{ url_for('static', filename='images/piece_0_4.png') }}" 
+             		draggable="true" 
+             		ondragstart="drag(event)"
+             		style="width: 7vw; height: 9vw;">
+    		</td>
+
+			<td colspan="3">
+        		<img id="drag_2_2" 
+             		src="{{ url_for('static', filename='images/piece_2_2.png') }}" 
+             		draggable="true" 
+             		ondragstart="drag(event)"
+             		style="width: 7vw; height: 9vw;">
+    		</td>
+        </tr>
+        <tr>
+
+			<td colspan="3">
+        		<img id="drag_2_3" 
+             		src="{{ url_for('static', filename='images/piece_2_3.png') }}" 
+             		draggable="true" 
+             		ondragstart="drag(event)"
+             		style="width: 7vw; height: 9vw;">
+    		</td>
+
+			<td colspan="3">
+        		<img id="drag_2_1" 
+             		src="{{ url_for('static', filename='images/piece_2_1.png') }}" 
+             		draggable="true" 
+             		ondragstart="drag(event)"
+             		style="width: 7vw; height: 9vw;">
+    		</td>
+
+			<td colspan="3">
+        		<img id="drag_1_3" 
+             		src="{{ url_for('static', filename='images/piece_1_3.png') }}" 
+             		draggable="true" 
+             		ondragstart="drag(event)"
+             		style="width: 7vw; height: 9vw;">
+    		</td>
+        </tr>
+        <tr>
+
+			<td colspan="3">
+        		<img id="drag_2_5" 
+             		src="{{ url_for('static', filename='images/piece_2_5.png') }}" 
+             		draggable="true" 
+             		ondragstart="drag(event)"
+             		style="width: 7vw; height: 9vw;">
     		</td>
 
 			<td colspan="3">
@@ -167,17 +257,33 @@
              		src="{{ url_for('static', filename='images/piece_1_0.png') }}" 
              		draggable="true" 
              		ondragstart="drag(event)"
-             		style="width: 11vw; height: 13vw;">
+             		style="width: 7vw; height: 9vw;">
+    		</td>
+
+			<td colspan="3">
+        		<img id="drag_0_5" 
+             		src="{{ url_for('static', filename='images/piece_0_5.png') }}" 
+             		draggable="true" 
+             		ondragstart="drag(event)"
+             		style="width: 7vw; height: 9vw;">
     		</td>
         </tr>
         <tr>
 
 			<td colspan="3">
-        		<img id="drag_1_3" 
-             		src="{{ url_for('static', filename='images/piece_1_3.png') }}" 
+        		<img id="drag_1_4" 
+             		src="{{ url_for('static', filename='images/piece_1_4.png') }}" 
              		draggable="true" 
              		ondragstart="drag(event)"
-             		style="width: 11vw; height: 13vw;">
+             		style="width: 7vw; height: 9vw;">
+    		</td>
+
+			<td colspan="3">
+        		<img id="drag_1_5" 
+             		src="{{ url_for('static', filename='images/piece_1_5.png') }}" 
+             		draggable="true" 
+             		ondragstart="drag(event)"
+             		style="width: 7vw; height: 9vw;">
     		</td>
 
 			<td colspan="3">
@@ -185,43 +291,33 @@
              		src="{{ url_for('static', filename='images/piece_1_1.png') }}" 
              		draggable="true" 
              		ondragstart="drag(event)"
-             		style="width: 11vw; height: 13vw;">
+             		style="width: 7vw; height: 9vw;">
     		</td>
         </tr>
         <tr>
-
-			<td colspan="3">
-        		<img id="drag_0_2" 
-             		src="{{ url_for('static', filename='images/piece_0_2.png') }}" 
-             		draggable="true" 
-             		ondragstart="drag(event)"
-             		style="width: 11vw; height: 13vw;">
-    		</td>
-
-			<td colspan="3">
-        		<img id="drag_0_0" 
-             		src="{{ url_for('static', filename='images/piece_0_0.png') }}" 
-             		draggable="true" 
-             		ondragstart="drag(event)"
-             		style="width: 11vw; height: 13vw;">
-    		</td>
-        </tr>
-        <tr>
-
-			<td colspan="3">
-        		<img id="drag_0_1" 
-             		src="{{ url_for('static', filename='images/piece_0_1.png') }}" 
-             		draggable="true" 
-             		ondragstart="drag(event)"
-             		style="width: 11vw; height: 13vw;">
-    		</td>
 
 			<td colspan="3">
         		<img id="drag_0_3" 
              		src="{{ url_for('static', filename='images/piece_0_3.png') }}" 
              		draggable="true" 
              		ondragstart="drag(event)"
-             		style="width: 11vw; height: 13vw;">
+             		style="width: 7vw; height: 9vw;">
+    		</td>
+
+			<td colspan="3">
+        		<img id="drag_1_2" 
+             		src="{{ url_for('static', filename='images/piece_1_2.png') }}" 
+             		draggable="true" 
+             		ondragstart="drag(event)"
+             		style="width: 7vw; height: 9vw;">
+    		</td>
+
+			<td colspan="3">
+        		<img id="drag_0_2" 
+             		src="{{ url_for('static', filename='images/piece_0_2.png') }}" 
+             		draggable="true" 
+             		ondragstart="drag(event)"
+             		style="width: 7vw; height: 9vw;">
     		</td>
         </tr>
 
